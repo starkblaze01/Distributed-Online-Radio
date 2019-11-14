@@ -1,209 +1,273 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<html>
+	<html>
+		<head>
+			<meta charset="utf-8" />
+			<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+			<meta name="viewport" content="width=device-width" />
+			<title>Online Radio</title>
 
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width">
-	<title>Online Radio</title>
+			<link
+				rel="stylesheet"
+				type="text/css"
+				href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+			/>
+			<link href="img/Headphone.ico" rel="icon" type="image/x-icon" />
+			<link rel="stylesheet" href="css/style.css" />
+		</head>
 
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link href="img/Headphone.ico" rel="icon" type="image/x-icon">
-	<link rel="stylesheet" href="css/style.css">
-</head>
+		<body>
+			<audio id="music"></audio>
 
-<body>
+			<div id="modal-wrapper">
+				<div id="track-list" class="track-list">
+					<div class="close-track-list">
+						<button>
+							<i class="fa fa-close fa-1x" title="Close"></i>
+						</button>
+					</div>
+					<div class="sticky-bar">
+						<input
+							type="text"
+							name="song_search"
+							id="song_search"
+							class="song-search"
+						/>
+					</div>
+					<ul></ul>
+				</div>
 
-	<audio id="music"></audio>
-
-	<div id="modal-wrapper">
-		<div id="track-list" class="track-list">
-			<div class="close-track-list">
-				<button>
-					<i class="fa fa-close fa-1x" title="Close"></i>
-				</button>
-			</div>
-			<div class="sticky-bar">
-				<input type="text" name="song_search" id="song_search" class="song-search" />
-			</div>
-			<ul></ul>
-		</div>
-
-		<div class="modal-preference">
-			<div id="popover-title">
-				Preferences
-			</div>
-			<div id="popover-body">
-				<div class="opening">
-					<div>Opening</div>
-					<div class="toggle-btn active">
-						<input type="checkbox" checked class="cb-value cb-op" />
-						<span class="round-btn"></span>
+				<div class="modal-preference">
+					<div id="popover-title">
+						Preferences
+					</div>
+					<div id="popover-body">
+						<div class="opening">
+							<div>Opening</div>
+							<div class="toggle-btn active">
+								<input type="checkbox" checked class="cb-value cb-op" />
+								<span class="round-btn"></span>
+							</div>
+						</div>
+						<div class="ending">
+							<div>Ending</div>
+							<div class="toggle-btn active">
+								<input type="checkbox" checked class="cb-value cb-ed" />
+								<span class="round-btn"></span>
+							</div>
+						</div>
+						<div class="ost">
+							<div>OST</div>
+							<div class="toggle-btn active">
+								<input type="checkbox" checked class="cb-value cb-ost" />
+								<span class="round-btn"></span>
+							</div>
+						</div>
+						<div class="fav">
+							<div>Favorites Only</div>
+							<div class="toggle-btn">
+								<input type="checkbox" class="cb-value cb-fav" />
+								<span class="round-btn"></span>
+							</div>
+						</div>
+						<!-- Place this tag where you want the button to render. -->
+						<a
+							class="github-button"
+							href="https://github.com/starkblaze01/Distributed-Online-Radio"
+							data-icon="octicon-star"
+							data-size="large"
+							data-show-count="true"
+							aria-label="Star starkblaze01/Distributed-Online-Radio on GitHub"
+							>Star</a
+						>
+						<!-- Place this tag where you want the button to render. -->
+						<a
+							class="github-button"
+							href="https://github.com/starkblaze01/Distributed-Online-Radio/fork"
+							data-icon="octicon-repo-forked"
+							data-size="large"
+							data-show-count="true"
+							aria-label="Fork starkblaze01/Distributed-Online-Radio on GitHub"
+							>Fork</a
+						>
 					</div>
 				</div>
-				<div class="ending">
-					<div>Ending</div>
-					<div class="toggle-btn active">
-						<input type="checkbox" checked class="cb-value cb-ed" />
-						<span class="round-btn"></span>
+			</div>
+
+			<div class="top-bar">
+				<i
+					class="fa fa-bars fa-2x track-list-img"
+					data-toggle="tooltip"
+					data-placement="bottom"
+					title="Playlist"
+				></i>
+				<i id="starImg" class="fa fa-2x" title="Favorite"></i>
+				<i class="fa fa-info-circle fa-2x infoImg"></i>
+				<div
+					id="top-left"
+					class="top-left"
+					style="border-radius: 10px; display: none"
+				>
+					<table class="table table-hover" style="margin-bottom: 0px">
+						<thead style="background-color: black;color: white">
+							<tr>
+								<th>Key</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><strong>SPACE</strong></td>
+								<td>Pause / Play</td>
+							</tr>
+							<tr>
+								<td><strong>N</strong></td>
+								<td>Next Track</td>
+							</tr>
+							<tr>
+								<td><strong>R</strong></td>
+								<td>Play Again</td>
+							</tr>
+							<tr>
+								<td><strong>F</strong></td>
+								<td>Fullscreen</td>
+							</tr>
+							<tr>
+								<td><strong>L</strong></td>
+								<td>Last Track</td>
+							</tr>
+							<tr>
+								<td><strong>UP</strong></td>
+								<td>Volume +10%</td>
+							</tr>
+							<tr>
+								<td><strong>DOWN</strong></td>
+								<td>Volume -10%</td>
+							</tr>
+							<tr>
+								<td><strong>LEFT</strong></td>
+								<td>Seek -10s</td>
+							</tr>
+							<tr>
+								<td><strong>RIGHT</strong></td>
+								<td>Seek +10s</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="top-right">
+					<a
+						data-placement="left"
+						data-container="body"
+						data-placement="left"
+						type="button"
+						data-html="true"
+						data-toggle="popover"
+						data-trigger="manual"
+					>
+						<i
+							class="fa fa-cog fa-2x"
+							data-toggle="tooltip"
+							data-placement="bottom"
+							title="Preferences"
+						></i>
+					</a>
+				</div>
+			</div>
+
+			<!--<button id="pButton" class="play" data-toggle="tooltip" data-placement="top" title="Toggle Play"></button>-->
+			<button id="pButton" class="play" title="Toggle Play">
+				<i class="fa fa-play fa-4x" id="play" title="Play"></i>
+				<i class="fa fa-pause fa-4x" id="pause" title="Pause"></i>
+				<i
+					class="fa fa-spinner fa-pulse fa-4x loader"
+					id="loader"
+					title="Loading"
+				></i>
+			</button>
+
+			<div id="wrapper">
+				<div id="player">
+					<div id="timeline">
+						<div id="buffered-bar">
+							<div id="playedBar"></div>
+							<div id="playhead"></div>
+						</div>
 					</div>
-
+					<div id="playTime"></div>
 				</div>
-				<div class="ost">
-					<div>OST</div>
-					<div class="toggle-btn active">
-						<input type="checkbox" checked class="cb-value cb-ost" />
-						<span class="round-btn"></span>
+			</div>
+
+			<div class="display-track">
+				<div id="track-name"></div>
+			</div>
+
+			<div class="bottom-bar">
+				<div class="bottom-left">
+					<div id="previous" title="Play Last">
+						<i
+							class="fa fa-backward fa-2x"
+							data-toggle="tooltip"
+							data-placement="top"
+							title="Play Last"
+						></i>
+					</div>
+					<div id="next" title="Play Next">
+						<i
+							class="fa fa-forward fa-2x"
+							data-toggle="tooltip"
+							data-placement="top"
+							title="Play Next"
+						></i>
 					</div>
 				</div>
-				<div class="fav">
-					<div>Favorites Only</div>
-					<div class="toggle-btn">
-						<input type="checkbox" class="cb-value cb-fav" />
-						<span class="round-btn"></span>
+
+				<div class="botton-right">
+					<div id="restart" title="Play Again">
+						<i
+							class="fa fa-refresh fa-2x"
+							data-toggle="tooltip"
+							data-placement="top"
+							title="Play Again"
+						></i>
+					</div>
+					<div id="fullscreen-button" title="Toggle Fullscreen">
+						<i
+							class="fa fa-arrows-alt fa-2x"
+							data-toggle="tooltip"
+							data-placement="top"
+							title="Toggle Fullscreen"
+						></i>
 					</div>
 				</div>
-				<!-- Place this tag where you want the button to render. -->
-				<a class="github-button" href="https://github.com/starkblaze01/Distributed-Online-Radio"
-					data-icon="octicon-star" data-size="large" data-show-count="true"
-					aria-label="Star starkblaze01/Distributed-Online-Radio on GitHub">Star</a>
-				<!-- Place this tag where you want the button to render. -->
-				<a class="github-button" href="https://github.com/starkblaze01/Distributed-Online-Radio/fork"
-					data-icon="octicon-repo-forked" data-size="large" data-show-count="true"
-					aria-label="Fork starkblaze01/Distributed-Online-Radio on GitHub">Fork</a>
 			</div>
-		</div>
-	</div>
 
-	<div class="top-bar">
-		<i class="fa fa-bars fa-2x track-list-img" data-toggle="tooltip" data-placement="bottom" title="Playlist"></i>
-		<i id="starImg" class="fa fa-2x" title="Favorite"></i>
-		<i class="fa fa-info-circle fa-2x infoImg"></i>
-		<div id="top-left" class="top-left" style="border-radius: 10px; display: none">
-			<table class="table table-hover" style="margin-bottom: 0px">
-				<thead style="background-color: black;color: white">
-					<tr>
-						<th>Key</th>
-						<th>Action</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><strong>SPACE</strong></td>
-						<td>Pause / Play</td>
-					</tr>
-					<tr>
-						<td><strong>N</strong></td>
-						<td>Next Track</td>
-					</tr>
-					<tr>
-						<td><strong>R</strong></td>
-						<td>Play Again</td>
-					</tr>
-					<tr>
-						<td><strong>F</strong></td>
-						<td>Fullscreen</td>
-					</tr>
-					<tr>
-						<td><strong>L</strong></td>
-						<td>Last Track</td>
-					</tr>
-					<tr>
-						<td><strong>UP</strong></td>
-						<td>Volume +10%</td>
-					</tr>
-					<tr>
-						<td><strong>DOWN</strong></td>
-						<td>Volume -10%</td>
-					</tr>
-					<tr>
-						<td><strong>LEFT</strong></td>
-						<td>Seek -10s</td>
-					</tr>
-					<tr>
-						<td><strong>RIGHT</strong></td>
-						<td>Seek +10s</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+			<!-- Post-loaded CSS -->
+			<link
+				href="https://fonts.googleapis.com/css?family=Ropa+Sans"
+				lazyload="1"
+				rel="stylesheet"
+			/>
+			<link
+				href="https://fonts.googleapis.com/css?family=Cairo"
+				lazyload="1"
+				rel="stylesheet"
+			/>
+			<!--/Post-loaded CSS -->
 
-		<div class="top-right">
-			<a data-placement="left" data-container="body" data-placement="left" type="button" data-html="true"
-				data-toggle="popover" data-trigger="manual">
-				<i class="fa fa-cog fa-2x" data-toggle="tooltip" data-placement="bottom" title="Preferences"></i>
-			</a>
-		</div>
-	</div>
+			<!-- Post-loaded JS -->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-	<!--<button id="pButton" class="play" data-toggle="tooltip" data-placement="top" title="Toggle Play"></button>-->
-	<button id="pButton" class="play" title="Toggle Play">
-		<i class="fa fa-play fa-4x" id="play" title="Play"></i>
-		<i class="fa fa-pause fa-4x" id="pause" title="Pause"></i>
-		<i class="fa fa-spinner fa-pulse fa-4x loader" id="loader" title="Loading"></i>
-	</button>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+			<script src="https://use.fontawesome.com/292557cf8d.js"></script>
+			<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+			<script type="text/javascript" src="js/data.json"></script>
+			<script src="js/listen.js"></script>
 
-	<div id="wrapper">
-		<div id="player">
-			<div id="timeline">
-				<div id="buffered-bar">
-					<div id="playedBar"></div>
-					<div id="playhead"></div>
-				</div>
-			</div>
-			<div id="playTime"></div>
-		</div>
-	</div>
-
-
-
-	<div class="display-track">
-		<div id="track-name"></div>
-	</div>
-
-	<div class="bottom-bar">
-
-		<div class="bottom-left">
-			<div id="previous" title="Play Last">
-				<i class="fa fa-backward fa-2x" data-toggle="tooltip" data-placement="top" title="Play Last"></i>
-			</div>
-			<div id="next" title="Play Next">
-				<i class="fa fa-forward fa-2x" data-toggle="tooltip" data-placement="top" title="Play Next"></i>
-			</div>
-		</div>
-
-		<div class="botton-right">
-			<div id="restart" title="Play Again">
-				<i class="fa fa-refresh fa-2x" data-toggle="tooltip" data-placement="top" title="Play Again"></i>
-			</div>
-			<div id="fullscreen-button" title="Toggle Fullscreen">
-				<i class="fa fa-arrows-alt fa-2x" data-toggle="tooltip" data-placement="top"
-					title="Toggle Fullscreen"></i>
-			</div>
-		</div>
-
-	</div>
-
-
-
-	<!-- Post-loaded CSS -->
-	<link href="https://fonts.googleapis.com/css?family=Ropa+Sans" lazyload="1" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Cairo" lazyload="1" rel="stylesheet">
-	<!--/Post-loaded CSS -->
-
-	<!-- Post-loaded JS -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="https://use.fontawesome.com/292557cf8d.js"></script>
-
-	<script type="text/javascript" src="js/data.json"></script>
-	<script src="js/listen.js"></script>
-
-	<script async defer src="https://buttons.github.io/buttons.js"></script>
-	<!--/Post-loaded JS -->
-</body>
-
+			<script async defer src="https://buttons.github.io/buttons.js"></script>
+			<!--/Post-loaded JS -->
+		</body>
+	</html>
 </html>

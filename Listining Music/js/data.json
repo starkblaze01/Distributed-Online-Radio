@@ -1,17 +1,7 @@
-openings = [
+(soundtracks = [
 	{
-		"link": "http://a60bb1c9.ngrok.io/stream",
-		"name": "http://a60bb1c9.ngrok.io/name",
-		"img": "http://a60bb1c9.ngrok.io/img"
+		"link": "https://f0bbe910.ngrok.io/stream",
+		"name": "https://f0bbe910.ngrok.io/name",
+		"img": "https://f0bbe910.ngrok.io/img"
 	}
-]
-
-
-endings = [
-	{}
-]
-
-
-osts = [
-	{}
-]
+])
