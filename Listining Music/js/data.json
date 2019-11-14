@@ -1,8 +1,8 @@
 openings = [
 	{
-		"link": "http://5a93635c.ngrok.io",
-		"name": "Testing Distributed Computing",
-		"img": "./img/Texture.png"
+		"link": "http://a60bb1c9.ngrok.io/stream",
+		"name": "http://a60bb1c9.ngrok.io/name",
+		"img": "http://a60bb1c9.ngrok.io/img"
 	}
 ]
 
