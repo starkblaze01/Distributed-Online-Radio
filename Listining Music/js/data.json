@@ -1,0 +1,17 @@
+openings = [
+	{
+		"link": "http://5a93635c.ngrok.io",
+		"name": "Testing Distributed Computing",
+		"img": "./img/Texture.png"
+	}
+]
+
+
+endings = [
+	{}
+]
+
+
+osts = [
+	{}
+]
