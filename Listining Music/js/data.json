@@ -1,7 +1,7 @@
 (soundtracks = [
 	{
-		"link": "https://f0bbe910.ngrok.io/stream",
-		"name": "https://f0bbe910.ngrok.io/name",
-		"img": "https://f0bbe910.ngrok.io/img"
+		"link": "http://293fc5e9.ngrok.io/stream",
+		"name": "http://293fc5e9.ngrok.io/name",
+		"img": "http://293fc5e9.ngrok.io/img"
 	}
 ])
