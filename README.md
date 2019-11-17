@@ -26,4 +26,6 @@ Love sharing music with your peers? Try this out!
 - [Anshuman Verma](https://github.com/anshumanv)
 - ,and [Me](https://github.com/starkblaze01/) 😎
 
+P.S. This is repository is extended version of [onganku](https://github.com/anshumanv/ongaku).
+
 ## Found bug or have any queries? Make an issue [here](https://github.com/starkblaze01/Distributed-Online-Radio/issues/new)
